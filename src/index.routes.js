@@ -5,6 +5,9 @@ import Bike from "./Bike";
 import Truck from "./Truck";
 import Layout from "./Layout";
 
+import Count from "./Count";
+import Tabs from "./Tabs";
+
 export default function RoutesList(props) {
   const layoutify = (Component) => (
     <Layout>
@@ -17,6 +20,8 @@ export default function RoutesList(props) {
       <Route path="/" element={layoutify(Car)} />
       <Route path="/bike" element={layoutify(Bike)}></Route>
       <Route path="/truck" element={layoutify(Truck)}></Route>
+      <Route path="/counter" element={layoutify(Count)}></Route>
+      <Route path="/tabs" element={layoutify(Tabs)}></Route>
     </Routes>
   );
 }

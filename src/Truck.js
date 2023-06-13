@@ -6,6 +6,10 @@ class Truck extends React.Component {
     this.state = {};
   }
 
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
+  }
+
   render() {
     // const { make } = this.props;
     return (

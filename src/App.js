@@ -11,7 +11,6 @@ import BasicLayout from "./BasicLayout";
 
 class App extends React.Component {
   constructor() {
-    console.log("In Constructor");
     super();
     this.state = {
       name: "init",
@@ -90,9 +89,7 @@ class App extends React.Component {
     this.setState({ ...this.state.cars, car: { make: make }, cars });
   }
 
-  componentDidMount() {
-    console.log("componentDidMount");
-  }
+  componentDidMount() {}
   componentDidUpdate(prevProps, prevState) {
     console.log("componentDidUpdate");
     console.log(prevProps);
