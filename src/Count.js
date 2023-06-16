@@ -8,6 +8,21 @@ export default function Counter() {
   const [theme, setTheme] = React.useState("blue");
   const [user, setUser] = React.useState({ name: "", car: {} });
 
+  const [counter, dispatch] = React.useReducer(reducer, 0);
+
+  function reducer(count, action) {
+    switch (action.type) {
+      case "increment":
+        return count + 1 + action.payload;
+      case "decrement":
+        return count - 1 + action.payload;
+      default:
+        return count;
+    }
+  }
+
+  dispatch({ type: "increment", payload: respon });
+
   setUser({ ...user, name: test });
 
   this.setState({ name: "test" });

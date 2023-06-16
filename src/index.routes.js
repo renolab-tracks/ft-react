@@ -7,6 +7,7 @@ import Layout from "./Layout";
 
 import Count from "./Count";
 import Tabs from "./Tabs";
+import Manage from "./Manage";
 
 export default function RoutesList(props) {
   const layoutify = (Component) => (
@@ -22,6 +23,7 @@ export default function RoutesList(props) {
       <Route path="/truck" element={layoutify(Truck)}></Route>
       <Route path="/counter" element={layoutify(Count)}></Route>
       <Route path="/tabs" element={layoutify(Tabs)}></Route>
+      <Route path="/manage" element={layoutify(Manage)}></Route>
     </Routes>
   );
 }

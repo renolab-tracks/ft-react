@@ -9,56 +9,18 @@ import Truck from "./Truck";
 import Layout from "./Layout";
 import BasicLayout from "./BasicLayout";
 
+import LocaleContext from "./LocaleContext";
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "init",
-      age: 23,
-      email: "",
-      car: { make: "Test" },
-      cars: [
-        { make: "Test", model: 1997 },
-        { make: "Test", model: 1999 },
-        { make: "Test", model: 1997 },
-        { make: "Test", model: 2000 },
-      ],
-      tweets: [
-        {
-          id: 1,
-          stars: 13,
-          text: "Turns out git reset --hard HEAD^ was a terrible idea",
-          users: [],
-        },
-        {
-          id: 2,
-          stars: 87,
-          text: "Tech conferences are too expensive",
-          users: [
-            {
-              name: "Sam",
-            },
-          ],
-        },
-        {
-          id: 3,
-          stars: 51,
-          text: "Clean code is subjective. Optimize for deletion",
-          users: [
-            {
-              name: "Sad",
-            },
-          ],
-        },
-        {
-          id: 4,
-          stars: 19,
-          text: "What even is a jQuery?",
-          users: [],
-        },
-      ],
-
-      errors: {},
+      locale: "en",
+      toggleLocale: () => {
+        this.setState(({ locale }) => ({
+          locale: locale === "en" ? "ar" : "en",
+        }));
+      },
     };
 
     this.clickHandler = this.clickHandler.bind(this);
@@ -107,11 +69,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router
-        make={this.state.car.make}
-        setMake={this.clickHandler}
-        data={this.state}
-      />
+      <LocaleContext.Provider value={this.state}>
+        <Router data={this.state} />
+      </LocaleContext.Provider>
     );
   }
 }
